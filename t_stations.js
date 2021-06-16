@@ -1,16 +1,31 @@
+// STATE MACHINES
+
+// State Transition Diagram - map!
+//    Current state
+//    Allowable transitions
+//    Move between states
+
+
 // holds current station as current station
 let currentStation = "Boylston";
 
 // holds list of allowable transitions between stations
 let stationTransitions = {
-  "Kendall/MIT": ["Central", "Charles/MGH"],
-  Central: ["Kendall/MIT"],
-  "Charles/MGH": ["Park St", "Kendall/MIT"],
+  // greenline
+  "Hynes Convention Center": ["Copley"],
+  Copley: ["Arlington", "Hynes Convention Center", "Prudential"],
+  Prudential: ["Copley", "Symphony", "Northeastern"],
+  Symphony: ["Prudential", "Northeaster"],
+  Northeastern: ["Symphony"],
+  Arlington: ["Copley", "Boylston"],
+  Boylston: ["Park St", "Arlington", "Downtown Crossing"],
   "Park St": ["Gov't Center", "Downtown Crossing", "Charles/MGH", "Boylston"],
   "Gov't Center": ["Bowdoin", "Haymarket", "State", "Park St"],
-  Bowdoin: ["Gov't Center"],
-  Haymarket: ["Gov't Center", "State", "North Station"],
-  "North Station": ["Haymarket"],
+  Haymarket: ["Gov't Center"],
+
+  // red line
+  "Kendall/MIT": ["Charles/MGH"],
+  "Charles/MGH": ["Park St", "Kendall/MIT"],
   "Downtown Crossing": [
     "Park St",
     "State",
@@ -18,18 +33,25 @@ let stationTransitions = {
     "Boylston",
     "Chinatown",
   ],
-  Boylston: ["Park St", "Arlington", "Downtown Crossing"],
-  State: ["Gov't Center", "Aquarium", "Downtown Crossing", "Haymarket"],
   "South Station": ["Downtown Crossing", "Broadway", "Courthouse", "Chinatown"],
-  Chinatown: ["Tufts Medical Center", "Downtown Crossing", "South Station"],
-  Arlington: ["Copley", "Boylston"],
-  Aquarium: ["State"],
   Courthouse: ["South Station"],
   Broadway: ["South Station"],
-  "Tufts Medical Center": ["Chinatown"],
-  Copley: ["Arlington", "Hynes Convention Center", "Prudential"],
-  "Hynes Convention Center": ["Copley"],
-  Prudential: ["Copley"],
+
+  // blue line
+  Bowdoin: ["Gov't Center"],
+  State: ["Gov't Center", "Aquarium", "Downtown Crossing", "Haymarket"],
+  Aquarium: ["State"],
+
+  // orange line
+  Chinatown: ["Tufts Medical Center", "Downtown Crossing", "South Station"],
+  "Tufts Medical Center": ["Chinatown", "Back Bay", "Herald St"],
+  "Back Bay": ["Tufts Medical Center", "Mass. Ave"],
+  "Mass. Ave": ["Back Bay"],
+
+  // grey line
+  "Herald St": ["Tufts Medical Center", "East Berkeley St"],
+  "East Berkeley St": ["Herald St", "Union Park St"],
+  "Union Park St": ["East Berkeley St"],
 };
 
 // function that checks for valid station changes
@@ -44,12 +66,12 @@ function changeStations(newStation) {
   }
 }
 
-console.log(currentStation)
-changeStations("Downtown Crossing")
-console.log(currentStation)
-changeStations("Gov't Center")
-console.log(currentStation)
-changeStations("State")
-console.log(currentStation)
-changeStations("Gov't Center")
-console.log(currentStation)
+console.log(currentStation);
+changeStations("Downtown Crossing");
+console.log(currentStation);
+changeStations("Gov't Center");
+console.log(currentStation);
+changeStations("State");
+console.log(currentStation);
+changeStations("Gov't Center");
+console.log(currentStation);
