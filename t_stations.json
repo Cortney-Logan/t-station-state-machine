@@ -1,0 +1,38 @@
+{
+    "Hynes Convention Center": ["Copley"],
+    "Copley": ["Arlington", "Hynes Convention Center", "Prudential"],
+    "Prudential": ["Copley", "Symphony", "Northeastern"],
+    "Symphony": ["Prudential", "Northeaster"],
+    "Northeastern": ["Symphony"],
+    "Arlington": ["Copley", "Boylston"],
+    "Boylston": ["Park St", "Arlington", "Downtown Crossing"],
+    "Park St": ["Gov't Center", "Downtown Crossing", "Charles/MGH", "Boylston"],
+    "Gov't Center": ["Bowdoin", "Haymarket", "State", "Park St"],
+    "Haymarket": ["Gov't Center"],
+  
+    "Kendall/MIT": ["Charles/MGH"],
+    "Charles/MGH": ["Park St", "Kendall/MIT"],
+    "Downtown Crossing": [
+      "Park St",
+      "State",
+      "South Station",
+      "Boylston",
+      "Chinatown"
+    ],
+    "South Station": ["Downtown Crossing", "Broadway", "Courthouse", "Chinatown"],
+    "Courthouse": ["South Station"],
+   "Broadway": ["South Station"],
+  
+    "Bowdoin": ["Gov't Center"],
+    "State": ["Gov't Center", "Aquarium", "Downtown Crossing", "Haymarket"],
+    "Aquarium": ["State"],
+
+    "Chinatown": ["Tufts Medical Center", "Downtown Crossing", "South Station"],
+    "Tufts Medical Center": ["Chinatown", "Back Bay", "Herald St"],
+    "Back Bay": ["Tufts Medical Center", "Mass. Ave"],
+    "Mass. Ave": ["Back Bay"],
+
+    "Herald St": ["Tufts Medical Center", "East Berkeley St"],
+    "East Berkeley St": ["Herald St", "Union Park St"],
+    "Union Park St": ["East Berkeley St"]
+  }
